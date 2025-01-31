@@ -2,10 +2,10 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const http = require('http')
-
+app.use(express.static('dist'))
 app.use(express.json())
-
 app.use(cors())
+cors
 
 let notes = [
     {
@@ -81,8 +81,7 @@ app.post('/api/notes', (request, response) => {
 })
 
 
-
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
 })
